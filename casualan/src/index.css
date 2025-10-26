@@ -33,15 +33,15 @@ nav {
   display: flex;
   list-style: none;
   gap: 3rem;
-  margin-right: 8rem;
+  margin-right: 6rem;
 }
 
 .nav-links li a {
   text-decoration: none;
   font-family: "Montserrat", sans-serif;
   color: #000000;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 13px;
+  font-weight: 550;
   transition: none;
   position: relative;
 }
@@ -75,16 +75,22 @@ nav {
 .search-container {
   position: relative;
   width: 250px;
-  margin-right: 25px;
+  margin-right: 45px;
 }
 
 .search-input {
   width: 100%;
+  background-color: transparent;
+  color: black;
   padding: 10px 30px 10px 15px;
   border: 1px solid black;
   border-radius: 50px;
   font-size: 13px;
   outline: none;
+}
+
+.search-input::placeholder {
+  color: rgb(37, 37, 37);
 }
 
 .search-icon {
@@ -97,21 +103,72 @@ nav {
   pointer-events: none;
 }
 
-.container img {
-  width: 100%;
-  height: auto;
+.hero h1 {
+  font-size: 5rem;
+  margin-left: 3rem;
+  font-weight: 900;
+  color: #000;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+.hero p{
+  margin-left: 3rem;
 }
 
-.container h1 {
-  display: flex;
+.hero h1 span.italic {
+  font-style: italic;
+  display: block;
+}
+
+.hero p:first-of-type {
+  font-size: 1.25rem;
+  font-weight: 750;
+  color: #000;
+  margin-bottom: 0.5rem;
+}
+
+.hero p:nth-of-type(2) {
+  font-size: 1.80rem;
+  font-weight: 800;
+  color: #000;
+  margin-bottom: 2rem;
+}
+
+
+.hero button {
+  background: transparent;
+  border: 3px solid #000;
+  color: #000;
+  font-weight: 700;
+  padding: 0.875rem 2.5rem;
+  border-radius: 9999px;
+  font-size: 1.125rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: capitalize;
+  margin-left: 3rem;
+}
+
+.hero button:hover {
+  background: #000;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.hero button:active {
+  transform: translateY(0);
 }
 
 .hero {
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   background: url(image/BANNER.png);
   background-size: cover;
 }
+
+

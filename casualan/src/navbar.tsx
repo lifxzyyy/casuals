@@ -74,19 +74,19 @@ export default function Navbar() {
           }`}
         >
           <li>
-            <a href="#men">Home</a>
+            <a href="#men">MEN</a>
           </li>
           <li>
-            <a href="#women">Skills</a>
+            <a href="#women">WOMEN</a>
           </li>
           <li>
-            <a href="#kids">Projects</a>
+            <a href="#kids">KIDS</a>
           </li>
           <li>
-            <a href="#collection">Experience</a>
+            <a href="#collection">COLLECTION</a>
           </li>
           <li>
-            <a href="#about">Contact</a>
+            <a href="#about">CONTACT</a>
           </li>
         </ul>
         <div className="icon">

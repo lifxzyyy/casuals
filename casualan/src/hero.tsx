@@ -74,8 +74,20 @@ export default function Hero() {
   return (
     <section className="hero" id="home">
       <div className="container">
-        <img src="image/BANNER.png" alt="" />
-        <h1>STEP INTO THE ICON</h1>
+        <h1>
+          STEP INTO
+          <br />
+          <span className="italic">THE ICONS</span>
+        </h1>
+        <p>
+          Timeless. Effortless. Unmistakably Adidas.
+        </p>
+        <p>
+          Own the legacy. Walk your story.
+        </p>
+        <button className="bg-transparent border-3 border-black text-black font-bold px-8 py-3 rounded-full text-lg hover:bg-black hover:text-white transition">
+          Shop The Collection
+        </button>
       </div>
     </section>
   );
