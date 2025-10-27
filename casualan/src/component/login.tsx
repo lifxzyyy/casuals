@@ -12,7 +12,6 @@ export default function LoginPage() {
   return (
     <section className="login" id="login">
       <div className="login-container">
-        {/* Left side - Login Form */}
         <div className="login-content">
           <div className="login-header">
             <h1>LOGIN</h1>
@@ -23,7 +22,6 @@ export default function LoginPage() {
 
           <div className="login-form">
             <div className="input-wrapper">
-              <div className="input-diagonal"></div>
               <input
                 type="email"
                 className="input-field"
@@ -33,8 +31,7 @@ export default function LoginPage() {
               />
             </div>
 
-            <div className="input-wrapper">
-              <div className="input-diagonal"></div>
+            <div className="input-wrapper2">
               <input
                 type="password"
                 className="input-field"

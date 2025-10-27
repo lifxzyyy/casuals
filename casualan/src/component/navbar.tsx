@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -112,6 +114,7 @@ export default function Navbar() {
               clip-rule="evenodd"
             />
           </svg>
+          <h4><Link to="/login">LOGIN</Link></h4>
         </div>
         <div
           className={`mobile-menu ${isOpen ? "open" : ""}`}

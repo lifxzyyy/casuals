@@ -1,16 +1,16 @@
-import Navbar from "./navbar";
-import Hero from "./hero";
-import Login from "./login";
-import "./index.css"
+import { Routes, Route } from "react-router-dom";
+import Navbar from "./component/navbar";
+import Home from "./pages/Home";
+import LoginPage from "./pages/LoginPage";
 
-export default function Home() {
-
+export default function App() {
   return (
-    <main>
+    <>
       <Navbar />
-      <Hero />
-      <Login />
-    </main>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<LoginPage />} />
+      </Routes>
+    </>
   );
-  
 }

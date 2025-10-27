@@ -4,10 +4,13 @@
   box-sizing: border-box;
 }
 
+
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 body {
-  font-family: Arial, sans-serif;
   background-color: #ffffff;
   min-height: 100vh;
+  font-family: 'Montserrat', sans-serif;
 }
 
 nav {
@@ -20,13 +23,19 @@ nav {
   transition: box-shadow 0.3s ease;
 }
 
+nav.scrolled {
+  background: rgba(1, 115, 203, 1); /* bisa diganti warna lain */
+  backdrop-filter: blur(10px); 
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
 .nav-container {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 0px;
 }
 
 .nav-links {
@@ -69,7 +78,12 @@ nav {
   display: flex;
   align-items: end;
   gap: 1.5rem;
-  margin-right: 1.5rem;
+ 
+}
+.icon h4{
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 3px;
 }
 
 .search-container {
@@ -111,9 +125,11 @@ nav {
   margin-bottom: 1rem;
   line-height: 1.1;
   letter-spacing: -0.02em;
+  font-family: 'Montserrat', sans-serif;
 }
 .hero p{
   margin-left: 3rem;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .hero h1 span.italic {
@@ -194,22 +210,27 @@ nav {
 .login-content {
   display: flex;
   flex-direction: column;
+  margin-top: 3rem;
   gap: 40px;
 }
 
 .login-header h1 {
   font-size: 4rem;
-  font-weight: 900;
+  font-weight: 750;
   margin-bottom: 15px;
   color: #000;
-  letter-spacing: -1px;
+  margin-left: 8rem;
+  font-family: 'Montserrat', sans-serif;
 }
+
 
 .forgot-link {
   color: #000;
   text-decoration: underline;
   font-size: 0.9rem;
   transition: all 0.3s;
+  margin-left: 8rem;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .forgot-link:hover {
@@ -217,55 +238,70 @@ nav {
   opacity: 0.8;
 }
 
-/* Form Styles */
 .login-form {
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  align-items: center;
+  gap: 18px;
+  
 }
 
-.input-wrapper {
+.input-wrapper{
   position: relative;
-  width: 100%;
+  width: 350px;
+  height: 50px;
+  border-radius: 8px;
+  margin-left: 2rem;
+}
+.input-wrapper2 {
+  position: relative;
+  width: 380px;
+  height: 50px;
+  border-radius: 8px;
 }
 
-.input-diagonal {
+.input-wrapper::before,
+.input-wrapper2::before {
+  content: "";
   position: absolute;
-  left: 0;
   top: 0;
-  bottom: 0;
-  width: 50px;
-  background: rgba(255, 255, 255, 0.9);
-  clip-path: polygon(0 0, 100% 20%, 100% 80%, 0 100%);
-  z-index: 1;
+  left: -20px;
+  width: calc(100% + 20px);
+  height: 100%;
+  background: #fff;
+  clip-path: polygon(20px 0, 100% 0, 100% 100%, 0 100%);
+  border-radius: 8px;
+  z-index: 0;
 }
 
+/* Input field */
 .input-field {
   width: 100%;
-  padding: 18px 25px 18px 70px;
+  height: 100%;
+  padding: 12px 18px;
   border: none;
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(10px);
-  border-radius: 0 50px 50px 0;
-  font-size: 1rem;
-  color: #333;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s;
-  position: relative;
-  z-index: 2;
-}
-
-.input-field:focus {
+  border-radius: 8px;
   outline: none;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.5);
+  font-size: 1rem;
+  background: #fff;
+  color: #333;
+  position: relative;
+  z-index: 1;
+  transition: box-shadow 0.2s ease, transform 0.1s ease;
 }
 
 .input-field::placeholder {
-  color: #6b7280;
+  color: #777;
 }
 
+/* Efek focus ringan */
+.input-field:focus {
+  transform: scale(1.01);
+}
+
+
 .login-button {
-  width: 100%;
+  width: 50%;
   padding: 18px;
   border: none;
   background: #1d4ed8;
