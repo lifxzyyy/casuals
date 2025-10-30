@@ -11,8 +11,13 @@ export default function LoginPage() {
 
   return (
     <section className="login" id="login">
+      {/* Background terpisah agar tidak ikut repaint */}
+      <div className="login-bg">
+        <img src="../src/image/login.png" alt="Background" />
+      </div>
       <div className="login-container">
-        <div className="login-content">
+        {/* Kiri: Form login */}
+        <div className="login-content" data-aos="fade-right">
           <div className="login-header">
             <h1>LOGIN</h1>
             <a href="#" className="forgot-link">
@@ -49,6 +54,11 @@ export default function LoginPage() {
           <div className="register-link">
             Belum punya akun? <a href="#">Daftar</a>
           </div>
+        </div>
+
+        {/* Kanan: Gambar orang / elemen visual */}
+        <div className="login-image" data-aos="fade-left">
+          <img src="../src/image/sepatu.png" alt="Login Illustration" />
         </div>
       </div>
     </section>

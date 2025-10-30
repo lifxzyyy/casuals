@@ -117,18 +117,45 @@ nav.scrolled {
   pointer-events: none;
 }
 
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Background jadi elemen tersendiri */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(1);
+}
+
+
+/* Konten teks */
+.hero-content {
+  padding-left: 3rem;
+  z-index: 2;
+}
+
 .hero h1 {
   font-size: 5rem;
-  margin-left: 3rem;
   font-weight: 900;
   color: #000;
   margin-bottom: 1rem;
   line-height: 1.1;
   letter-spacing: -0.02em;
-  font-family: 'Montserrat', sans-serif;
-}
-.hero p{
-  margin-left: 3rem;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -145,91 +172,120 @@ nav.scrolled {
 }
 
 .hero p:nth-of-type(2) {
-  font-size: 1.80rem;
+  font-size: 1.8rem;
   font-weight: 800;
   color: #000;
   margin-bottom: 2rem;
 }
 
-
-.hero button {
+/* Tombol */
+.hero-btn {
   background: transparent;
   border: 3px solid #000;
   color: #000;
   font-weight: 700;
   padding: 0.875rem 2.5rem;
-  border-radius: 9999px;
+  border-radius: 50px;
   font-size: 1.125rem;
   cursor: pointer;
-  transition: all 0.3s ease;
-  text-transform: capitalize;
-  margin-left: 3rem;
+  transition: transform 0.2s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform, background, color, box-shadow;
+  transform: translateZ(0);
 }
 
-.hero button:hover {
+.hero-btn:hover {
   background: #000;
   color: #fff;
   transform: translateY(-2px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
-.hero button:active {
-  transform: translateY(0);
+/* Gambar sepatu */
+.hero-image {
+  z-index: 2;
+  flex: 0 0 auto;
+  margin-right: 4rem;
 }
 
-.hero {
-  display: flex;
-  align-items: center;
-  min-height: 100vh;
-  width: 100%;
-  background: url(image/BANNER.png);
-  background-size: 100% 110%;
+.hero-image img {
+  width: 600px;
+  height: auto;
+  display: block;
+  transform: translateZ(0);
+  will-change: transform;
+  transition: transform 0.6s ease-out;
+}
+
+.hero-image img:hover {
+  transform: translateY(-5px) scale(1.02);
 }
 
 .login {
-  padding: 80px 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   min-height: 100vh;
-  background: url(image/login.png);
-  background-size: cover;
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
+/* Background pisah layer biar GPU friendly */
+.login-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
+
+.login-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.05);
+  transition: transform 4s ease-out;
+}
+
+.login:hover .login-bg img {
+  transform: scale(1.1);
+}
+
+/* Kontainer utama */
 .login-container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 50px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
+  padding: 0 4rem;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  min-height: calc(100vh - 160px);
-  position: relative;
-  z-index: 10;
+  gap: 4rem;
+  z-index: 2;
 }
 
-/* ========== Left Side - Login Form ========== */
+/* Kiri - form login */
 .login-content {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  margin-top: 3rem;
-  gap: 40px;
+  gap: 2rem;
 }
 
 .login-header h1 {
   font-size: 4rem;
   font-weight: 750;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   color: #000;
-  margin-left: 8rem;
   font-family: 'Montserrat', sans-serif;
 }
-
 
 .forgot-link {
   color: #000;
   text-decoration: underline;
   font-size: 0.9rem;
   transition: all 0.3s;
-  margin-left: 8rem;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -241,23 +297,14 @@ nav.scrolled {
 .login-form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 18px;
-  
+  gap: 1.2rem;
 }
 
-.input-wrapper{
+.input-wrapper,
+.input-wrapper2 {
   position: relative;
   width: 350px;
   height: 50px;
-  border-radius: 8px;
-  margin-left: 2rem;
-}
-.input-wrapper2 {
-  position: relative;
-  width: 380px;
-  height: 50px;
-  border-radius: 8px;
 }
 
 .input-wrapper::before,
@@ -274,7 +321,6 @@ nav.scrolled {
   z-index: 0;
 }
 
-/* Input field */
 .input-field {
   width: 100%;
   height: 100%;
@@ -290,19 +336,13 @@ nav.scrolled {
   transition: box-shadow 0.2s ease, transform 0.1s ease;
 }
 
-.input-field::placeholder {
-  color: #777;
-}
-
-/* Efek focus ringan */
 .input-field:focus {
   transform: scale(1.01);
 }
 
-
 .login-button {
-  width: 50%;
-  padding: 18px;
+  width: 200px;
+  padding: 0.9rem;
   border: none;
   background: #1d4ed8;
   color: white;
@@ -312,23 +352,18 @@ nav.scrolled {
   cursor: pointer;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   transition: all 0.3s;
-  margin-top: 10px;
 }
 
 .login-button:hover {
   background: #1e40af;
-  transform: scale(1.02);
+  transform: scale(1.05);
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
 }
 
-.login-button:active {
-  transform: scale(0.98);
-}
-
 .register-link {
-  text-align: center;
   font-size: 0.9rem;
   color: #000;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .register-link a {
@@ -341,4 +376,24 @@ nav.scrolled {
 .register-link a:hover {
   text-decoration: none;
   opacity: 0.8;
+}
+
+/* Kanan - gambar orang */
+.login-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.login-image img {
+  width: 500px;
+  max-width: 90%;
+  height: auto;
+  transform: translateZ(0);
+  will-change: transform;
+  transition: transform 0.6s ease-out;
+}
+
+.login:hover .login-image img {
+  transform: translateY(-5px) scale(1.03);
 }

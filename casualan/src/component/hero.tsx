@@ -10,13 +10,13 @@ interface TypeWriterProps {
 
 export function TypeWriter({ text, speed = 50, className }: TypeWriterProps) {
   const elementRef = useRef<HTMLSpanElement | null>(null);
-  const timeoutRef = useRef<number | null>(null); // simpan timeout id
+  const timeoutRef = useRef<number | null>(null); 
 
   useEffect(() => {
     if (!elementRef.current) return;
 
     let i = 0;
-    elementRef.current.textContent = ""; // reset sebelum mulai
+    elementRef.current.textContent = ""; 
 
     const type = () => {
       if (!elementRef.current) return;
@@ -42,7 +42,9 @@ export function TypeWriter({ text, speed = 50, className }: TypeWriterProps) {
 export default function Hero() {
   useEffect(() => {
     AOS.init({
-      once: false,
+      once: true, 
+      duration: 800,
+      easing: "ease-out-cubic",
     });
   }, []);
 
@@ -73,21 +75,24 @@ export default function Hero() {
 
   return (
     <section className="hero" id="home">
-      <div className="container">
+      {/* Gambar dijadikan elemen terpisah agar browser bisa render di GPU layer */}
+      <div className="hero-bg">
+        <img src="../src/image/HERO.png" alt="Hero Background" />
+      </div>
+
+      <div className="hero-content" data-aos="fade-up">
         <h1>
           STEP INTO
           <br />
           <span className="italic">THE ICONS</span>
         </h1>
-        <p>
-          Timeless. Effortless. Unmistakably Adidas.
-        </p>
-        <p>
-          Own the legacy. Walk your story.
-        </p>
-        <button className="bg-transparent border-3 border-black text-black font-bold px-8 py-3 rounded-full text-lg hover:bg-black hover:text-white transition">
-          Shop The Collection
-        </button>
+        <p>Timeless. Effortless. Unmistakably Adidas.</p>
+        <p>Own the legacy. Walk your story.</p>
+        <button className="hero-btn">Shop The Collection</button>
+      </div>
+
+      <div className="hero-image" data-aos="fade-left">
+        <img src="../src/image/sepatu.png" alt="Hero Image" />
       </div>
     </section>
   );
