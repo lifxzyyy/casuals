@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-
+import { useNavigate,useLocation } from "react-router-dom";
 
 export default function Navbar() {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -55,6 +56,8 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  
+   const isLoginPage = location.pathname === "/login";
 
   return (
     <nav id="navbar" className={scrolled ? "scrolled" : ""}>
@@ -114,7 +117,12 @@ export default function Navbar() {
               clip-rule="evenodd"
             />
           </svg>
-          <h4><Link to="/login">LOGIN</Link></h4>
+          <h4
+            style={{ cursor: "pointer" }}
+            onClick={() => navigate(isLoginPage ? "/" : "/login")}
+          >
+            {isLoginPage ? "HOME" : "LOGIN"}
+          </h4>
         </div>
         <div
           className={`mobile-menu ${isOpen ? "open" : ""}`}

@@ -58,7 +58,7 @@ export default function LoginPage() {
 
         {/* Kanan: Gambar orang / elemen visual */}
         <div className="login-image" data-aos="fade-left">
-          <img src="../src/image/sidegin.jpg" alt="Login Illustration" />
+          <img src="../src/image/sidegin.png" alt="Login Illustration" />
         </div>
       </div>
     </section>
