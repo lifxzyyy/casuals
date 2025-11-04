@@ -57,7 +57,8 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   
-   const isLoginPage = location.pathname === "/login";
+  const isLoginPage = location.pathname === "/login";
+  const isRegisterPage = location.pathname === "/register";
 
   return (
     <nav id="navbar" className={scrolled ? "scrolled" : ""}>
@@ -119,9 +120,10 @@ export default function Navbar() {
           </svg>
           <h4
             style={{ cursor: "pointer" }}
-            onClick={() => navigate(isLoginPage ? "/" : "/login")}
+            onClick={() => navigate(isLoginPage || isRegisterPage ? "/" : "/login")}
           >
-            {isLoginPage ? "HOME" : "LOGIN"}
+            {isLoginPage || isRegisterPage ? "HOME" : "LOGIN"}
+      
           </h4>
         </div>
         <div

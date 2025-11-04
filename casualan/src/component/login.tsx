@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function LoginPage() {
+   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -8,6 +10,8 @@ export default function LoginPage() {
     e.preventDefault();
     console.log("Login attempt:", { email, password });
   };
+
+  const isRegisterPage = location.pathname === "/register";
 
   return (
     <section className="login" id="login">
@@ -52,7 +56,13 @@ export default function LoginPage() {
           </div>
 
           <div className="register-link">
-            Belum punya akun? <a href="#">Daftar</a>
+            Belum punya akun?{" "}
+            <a
+              style={{ cursor: "pointer" }}
+              onClick={() => navigate(isRegisterPage ? "/" : "/register")}
+            >
+              Daftar
+            </a>
           </div>
         </div>
 
